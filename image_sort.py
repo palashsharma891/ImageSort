@@ -12,8 +12,9 @@ from PIL import Image
 import datetime
 from datetime import datetime
 
-parent_dir = "/home/palash/"
-photo_dir = '/home/palash/Pictures/'
+parent_dir = "/home/palash/" # for my system
+photo_dir = '/home/palash/Pictures/' # OR os.getcwd()
+# parent_dir = photo_dir[photo_dir.rfind('/')] ## FOR WINDOWS
 photos = []
 
 for photo in os.walk(photo_dir):
@@ -28,9 +29,9 @@ for i in photos:
 
 for images in a:
     print(images)
-    match = re.search( r'\d{4}-\d{2}-\d{2}', images)
+    match = re.search( r'\d{4}-\d{2}-\d{2}', images) # OR r'\d{8} ## For images saved like: IMG_20200720
     print(match)
-    date = str(datetime.strptime(match.group(), '%Y-%m-%d').date())
+    date = str(datetime.strptime(match.group(), '%Y-%m-%d').date()) # OR %Y%m%d For images saved like: IMG_20200720
     if os.path.isdir(parent_dir + date):
         shutil.move(photo_dir + images, parent_dir + date)
     else:
