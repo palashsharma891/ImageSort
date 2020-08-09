@@ -17,6 +17,9 @@ photo_dir = '/home/palash/Pictures/' # OR os.getcwd()
 # parent_dir = photo_dir[photo_dir.rfind('/')] ## FOR WINDOWS
 photos = []
 
+# parent_dir += "\\" ## For Windows
+# photo_dir += "\\" ## For Windows
+
 for photo in os.walk(photo_dir):
     photos += [photo]
     
