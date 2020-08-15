@@ -32,9 +32,13 @@ for i in photos:
 
 for images in a:
     print(images)
-    match = re.search( r'\d{4}-\d{2}-\d{2}', images) # OR r'\d{8} ## For images saved like: IMG_20200720
-    print(match)
-    date = str(datetime.strptime(match.group(), '%Y-%m-%d').date()) # OR %Y%m%d For images saved like: IMG_20200720
+    match1 = re.search( r'\d{4}-\d{2}-\d{2}', images) # OR r'\d{8} ## For images saved like: IMG_20200720
+    print(match1)
+    match2 = re.search( r'\d{8}', images) # OR r'\d{8} ## For images saved like: IMG_20200720
+    if match1:
+        date = str(datetime.strptime(match1.group(), '%Y-%m-%d').date()) # OR %Y%m%d For images saved like: IMG_20200720
+    if match2:
+        date = str(datetime.strptime(match2.group(), '%Y%m%d').date()) # OR %Y%m%d For images saved like: IMG_20200720
     if os.path.isdir(parent_dir + date):
         shutil.move(photo_dir + images, parent_dir + date)
     else:
