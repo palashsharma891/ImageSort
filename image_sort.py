@@ -15,7 +15,7 @@ from datetime import datetime
 parent_dir = "/home/palash/" # for my system
 photo_dir = '/home/palash/Pictures/' # OR os.getcwd()
 # parent_dir = photo_dir[photo_dir.rfind('/')] ## FOR WINDOWS
-photos = []
+photos, a = [], []
 
 # parent_dir += "\\" ## For Windows
 # photo_dir += "\\" ## For Windows
