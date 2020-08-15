@@ -26,7 +26,7 @@ for photo in os.walk(photo_dir):
 for i in photos:
     for j in i:
         if type(j) == list and not j == []:
-            a = j
+            a += j
     
 ### Assuming all photos are in the same directory ###
 
